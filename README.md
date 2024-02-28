@@ -1,3 +1,10 @@
+## Images
+
+![image](https://github.com/Moka-admin0/Np-4.0_MiniGames/assets/89666622/8391b0d5-c88a-4e05-bf17-3a62f76e92f6)
+
+
+
+
 ## Usage
 
 Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
