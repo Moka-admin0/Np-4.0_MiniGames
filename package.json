@@ -1,0 +1,35 @@
+{
+  "name": "vite-template-solid",
+  "version": "0.0.0",
+  "description": "",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
+    "watch": "vite build --watch"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^10.4.17",
+    "fs-extra": "^11.2.0",
+    "postcss": "^8.4.33",
+    "solid-devtools": "^0.29.2",
+    "tailwindcss": "^3.4.1",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.11",
+    "vite-plugin-copy": "^0.1.6",
+    "vite-plugin-solid": "^2.8.2",
+    "vite-svg-loader": "^5.1.0"
+  },
+  "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^6.5.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "@minht11/solid-virtual-container": "^0.2.1",
+    "@thisbeyond/solid-select": "^0.14.0",
+    "solid-collapse": "^1.1.0",
+    "solid-fa": "^0.2.0",
+    "solid-js": "^1.8.11",
+    "vite-plugin-solid-svg": "^0.8.0"
+  }
+}
