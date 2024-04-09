@@ -140,13 +140,3 @@ exports('FloodGame', function(callback,time,mov,grid)
 end)
 
 
-
-RegisterCommand("minitest", function()
-    exports["skillchecks"]:FloodGame(function(success)
-        if success then
-            print("win")
-        else
-            print("lose")
-        end
-    end, "math")
-end, false)
