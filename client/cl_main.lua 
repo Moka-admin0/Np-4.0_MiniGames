@@ -1,0 +1,152 @@
+RegisterNUICallback("skillchecks:minigameResult", function(data, cb)
+    SetNuiFocus(false, false)
+    Result(data.result)
+    cb('ok')
+end)
+
+exports('AlphabetGame', function(callback,time,keycount)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'alphabet',
+            show = true,
+            name = 'Alphabet',
+            description = 'This is the alphabet',
+            gameTimeoutDuration = time or 10000,
+            numKeys = keycount or 5
+        }
+    })
+end)
+
+exports('DirectionGame', function(callback,time,choice,min,max)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'direction',
+            show = true,
+            name = 'direction',
+            description = 'This is the direction',
+            gameTimeoutDuration = time or 10000,
+            requiredCorrectChoices = choice or 2,
+            minGridSize = min or 3,
+            maxGridSize = max or 7
+        }
+    })
+end)
+
+exports('FlipGame', function(callback,time,grid)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'flip',
+            show = true,
+            name = 'flip',
+            description = 'This is the flip',
+            gameTimeoutDuration = time or 10000,
+            gridSize = grid or 5
+        }
+    })
+end)
+
+
+exports('LockpickingGame', function(callback,time,num,lvl)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'lockpicking',
+            show = true,
+            name = 'lockpicking',
+            description = 'This is the lockpicking',
+            gameTimeoutDuration = time or 30000,
+            gameFinishedEndpoint = "skillchecks:minigameResult:lockpick",
+            numLocks = num or 12,
+            numLevels = lvl or 3
+        }
+    })
+end)
+
+exports('SameGame', function(callback,time,x,y)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'same',
+            show = true,
+            name = 'same',
+            description = 'This is the same',
+            gameTimeoutDuration = time or 30000,
+            gridSizeX = x or 11,
+            gridSizeY = y or 8
+        }
+    })
+end)
+
+exports('UntangleGame', function(callback,time,pts)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'untangle',
+            show = true,
+            name = 'untangle',
+            description = 'This is the untangle',
+            gameTimeoutDuration = time or 30000,
+            numPoints = pts or 6
+        }
+    })
+end)
+
+exports('WordsGame', function(callback,time,crt)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'words',
+            show = true,
+            name = 'words',
+            description = 'This is the words',
+            gameTimeoutDuration = time or 30000,
+            requiredCorrectChoices = crt or 5
+        }
+    })
+end)
+
+exports('FloodGame', function(callback,time,mov,grid)
+    SetNuiFocus(true, true)
+    Result = callback
+    SendNUIMessage({
+        action = 'skillchecks:settings',
+        data = {
+            active = 'flood',
+            show = true,
+            name = 'flood',
+            description = 'This is the flood',
+            gameTimeoutDuration = time or 80000,
+            moveCountLeniency = mov or 2,
+            gridSize = grid or 3
+        }
+    })
+end)
+
+
+
+RegisterCommand("minitest", function()
+    exports["skillchecks"]:FloodGame(function(success)
+        if success then
+            print("win")
+        else
+            print("lose")
+        end
+    end, "math")
+end, false)
