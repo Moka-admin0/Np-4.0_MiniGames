@@ -13,7 +13,7 @@ exports('AlphabetGame', function(callback,time,keycount)
             active = 'alphabet',
             show = true,
             name = 'Alphabet',
-            description = 'This is the alphabet',
+            description = 'Press the letter before time takes its lunch break!',
             gameTimeoutDuration = time or 10000,
             numKeys = keycount or 5
         }
@@ -29,7 +29,7 @@ exports('DirectionGame', function(callback,time,choice,min,max)
             active = 'direction',
             show = true,
             name = 'direction',
-            description = 'This is the direction',
+            description = 'Look for the fish, then take a left at the seaweed and a right at the talking crab!',
             gameTimeoutDuration = time or 10000,
             requiredCorrectChoices = choice or 2,
             minGridSize = min or 3,
@@ -47,7 +47,7 @@ exports('FlipGame', function(callback,time,grid)
             active = 'flip',
             show = true,
             name = 'flip',
-            description = 'This is the flip',
+            description = ' ',
             gameTimeoutDuration = time or 10000,
             gridSize = grid or 5
         }
@@ -63,8 +63,8 @@ exports('LockpickingGame', function(callback,time,num,lvl)
         data = {
             active = 'lockpicking',
             show = true,
-            name = 'lockpicking',
-            description = 'This is the lockpicking',
+            name = 'Lockpick',
+            description = 'The key to unlocking locks is... well, keys!,
             gameTimeoutDuration = time or 30000,
             gameFinishedEndpoint = "skillchecks:minigameResult:lockpick",
             numLocks = num or 12,
@@ -81,8 +81,8 @@ exports('SameGame', function(callback,time,x,y)
         data = {
             active = 'same',
             show = true,
-            name = 'same',
-            description = 'This is the same',
+            name = 'Box',
+            description = 'Boxes stick together when they're in the same clique',
             gameTimeoutDuration = time or 30000,
             gridSizeX = x or 11,
             gridSizeY = y or 8
@@ -99,7 +99,7 @@ exports('UntangleGame', function(callback,time,pts)
             active = 'untangle',
             show = true,
             name = 'untangle',
-            description = 'This is the untangle',
+            description = 'Time to untangle those poor points',
             gameTimeoutDuration = time or 30000,
             numPoints = pts or 6
         }
@@ -115,7 +115,7 @@ exports('WordsGame', function(callback,time,crt)
             active = 'words',
             show = true,
             name = 'words',
-            description = 'This is the words',
+            description = 'Make those blocks color twins',
             gameTimeoutDuration = time or 30000,
             requiredCorrectChoices = crt or 5
         }
@@ -131,7 +131,7 @@ exports('FloodGame', function(callback,time,mov,grid)
             active = 'flood',
             show = true,
             name = 'flood',
-            description = 'This is the flood',
+            description = 'Track down the elusive repeated work',
             gameTimeoutDuration = time or 80000,
             moveCountLeniency = mov or 2,
             gridSize = grid or 3
