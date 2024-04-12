@@ -64,7 +64,7 @@ exports('LockpickingGame', function(callback,time,num,lvl)
             active = 'lockpicking',
             show = true,
             name = 'Lockpick',
-            description = 'The key to unlocking locks is... well, keys!,
+            description = 'The key to unlocking locks is... well, keys!',
             gameTimeoutDuration = time or 30000,
             gameFinishedEndpoint = "skillchecks:minigameResult:lockpick",
             numLocks = num or 12,
@@ -82,7 +82,7 @@ exports('SameGame', function(callback,time,x,y)
             active = 'same',
             show = true,
             name = 'Box',
-            description = 'Boxes stick together when they're in the same clique',
+            description = "Boxes stick together when they're in the same clique",
             gameTimeoutDuration = time or 30000,
             gridSizeX = x or 11,
             gridSizeY = y or 8
