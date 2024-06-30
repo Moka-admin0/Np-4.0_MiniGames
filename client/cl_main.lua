@@ -1,12 +1,13 @@
+Promise = nil
+
 RegisterNUICallback("skillchecks:minigameResult", function(data, cb)
     SetNuiFocus(false, false)
-    Result(data.result)
+    Promise:resolve(data.result)
     cb('ok')
 end)
 
-exports('AlphabetGame', function(callback,time,keycount)
+function AlphabetGame(time,keycount)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -18,11 +19,14 @@ exports('AlphabetGame', function(callback,time,keycount)
             numKeys = keycount or 5
         }
     })
-end)
+    Promise = promise.new()
 
-exports('DirectionGame', function(callback,time,choice,min,max)
+    local result = Citizen.Await(Promise)
+    return result
+end
+
+function DirectionGame(time,choice,min,max)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -36,11 +40,14 @@ exports('DirectionGame', function(callback,time,choice,min,max)
             maxGridSize = max or 7
         }
     })
-end)
+     Promise = promise.new()
 
-exports('FlipGame', function(callback,time,grid)
+    local result = Citizen.Await(Promise)
+    return result
+end
+
+function FlipGame(time,grid)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -52,12 +59,15 @@ exports('FlipGame', function(callback,time,grid)
             gridSize = grid or 5
         }
     })
-end)
+     Promise = promise.new()
+
+    local result = Citizen.Await(Promise)
+    return result
+end
 
 
-exports('LockpickingGame', function(callback,time,num,lvl)
+function LockpickingGame(time,num,lvl)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -71,11 +81,14 @@ exports('LockpickingGame', function(callback,time,num,lvl)
             numLevels = lvl or 3
         }
     })
-end)
+    Promise = promise.new()
 
-exports('SameGame', function(callback,time,x,y)
+    local result = Citizen.Await(Promise)
+    return result
+end
+
+function SameGame(time,x,y)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -88,11 +101,14 @@ exports('SameGame', function(callback,time,x,y)
             gridSizeY = y or 8
         }
     })
-end)
+     Promise = promise.new()
 
-exports('UntangleGame', function(callback,time,pts)
+    local result = Citizen.Await(Promise)
+    return result
+end
+
+function UntangleGame(time,pts)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -104,11 +120,14 @@ exports('UntangleGame', function(callback,time,pts)
             numPoints = pts or 6
         }
     })
-end)
+     Promise = promise.new()
 
-exports('WordsGame', function(callback,time,crt)
+    local result = Citizen.Await(Promise)
+    return result
+end
+
+function WordsGame(time,crt)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -120,11 +139,14 @@ exports('WordsGame', function(callback,time,crt)
             requiredCorrectChoices = crt or 5
         }
     })
-end)
+     Promise = promise.new()
 
-exports('FloodGame', function(callback,time,mov,grid)
+    local result = Citizen.Await(Promise)
+    return result
+end
+
+function FloodGame(time,mov,grid)
     SetNuiFocus(true, true)
-    Result = callback
     SendNUIMessage({
         action = 'skillchecks:settings',
         data = {
@@ -137,6 +159,18 @@ exports('FloodGame', function(callback,time,mov,grid)
             gridSize = grid or 3
         }
     })
-end)
+     Promise = promise.new()
+
+    local result = Citizen.Await(Promise)
+    return result
+end
 
 
+exports('AlphabetGame', AlphabetGame)
+exports('DirectionGame', DirectionGame)
+exports('FlipGame', FlipGame)
+exports('LockpickingGame', LockpickingGame)
+exports('SameGame', SameGame)
+exports('UntangleGame', UntangleGame)
+exports('WordsGame', WordsGame)
+exports('FloodGame', FloodGame)
